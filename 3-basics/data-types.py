@@ -108,15 +108,32 @@ print(basket)
 basket.clear()          # clears list completely
 print(basket)
 
-alpha = ['a', 'b', 'c', 'd', 'e']
+alpha = ['x', 'a', 'b', 'c', 'd', 'e', '3','!', '1', '&']
 
 print(alpha.index('a'))             # returns the index of given value
-print(alpha.index('c', 0, 3))       # look between index 0 and 3
+print(alpha.index('c', 0, 5))       # look between index 0 and 5
 print('a'in alpha)                  # returns True if value is in alpha
 print('i' in 'hi my name is thijs') # also works on strings
 print(alpha.count('d'))             # counts accurances of set value
+alpha.sort()                        # sorts excisting array/list
+print(alpha)
+print(sorted(alpha))                # creates a new copy and sorts it
+alpha.reverse()                     # reverses but does not sort
+print(alpha)   
+print(alpha[::-1])                  # reverses with list slicing
+print(list(range(1,100)))           # creates range list from 1 to 100
+sentence = '<>'
+new_sentence = sentence.join(['hi', 'my', 'name', 'is', 'JOJO'])
+print(new_sentence)
+# list unpacking
+a,b,c, *other, d = [1,2,3,4,5,6,7,8,9]
+print(a)
+print(b)
+print(c)
+print(other)
+print(d)
 
-
+None                                # absence of value just like NULL
 
 tuple
 
@@ -127,5 +144,3 @@ dict
 # Classes -> custom types
 
 # Specialized Data Types -> Modules
-
-None
