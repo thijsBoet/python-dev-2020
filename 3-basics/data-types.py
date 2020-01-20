@@ -1,7 +1,7 @@
 import math
 
 # Fundamental Data Types
-int 
+int
 print(type(2 + 4))
 print(type(2 - 4))
 
@@ -108,7 +108,7 @@ print(basket)
 basket.clear()          # clears list completely
 print(basket)
 
-alpha = ['x', 'a', 'b', 'c', 'd', 'e', '3','!', '1', '&']
+alpha = ['x', 'a', 'b', 'c', 'd', 'e', '3','!', '1', '&', '&']
 
 print(alpha.index('a'))             # returns the index of given value
 print(alpha.index('c', 0, 5))       # look between index 0 and 5
@@ -118,9 +118,9 @@ print(alpha.count('d'))             # counts accurances of set value
 alpha.sort()                        # sorts excisting array/list
 print(alpha)
 print(sorted(alpha))                # creates a new copy and sorts it
-alpha.reverse()                     # reverses but does not sort
-print(alpha)   
+print(alpha)
 print(alpha[::-1])                  # reverses with list slicing
+alpha.reverse()                     # reverses but does not sort
 print(list(range(1,100)))           # creates range list from 1 to 100
 sentence = '<>'
 new_sentence = sentence.join(['hi', 'my', 'name', 'is', 'JOJO'])
@@ -135,11 +135,108 @@ print(d)
 
 None                                # absence of value just like NULL
 
-tuple
+dict                                # Dictionary unordered key => value pair(s) like associative array in PHP or objects JS
+dictionary = {
+    'a': [1,2,3],
+    'b': 'Hello to all',
+    'c': True
+}
+print(dictionary['a'])
+print(dictionary['a'][1])
+print(dictionary)
 
+my_list = [
+    {
+        'a': [1,2,3],
+        'b': 'Hello to all',
+        'c': True
+    },
+    {
+        'a': [4,5,6],
+        'b': 'Bye to all',
+        'c': False
+    }
+]
+print(my_list[0]['a'][2])
 
-set
-dict
+vandale = {
+    123: [1, 2, 3],
+    '456': [4, 5, 6],
+    '456': 'Bye',                   # Key must be unique, otherwise value is overwritten
+    True: 'Hello',
+    'is_magic': True,
+}
+print(vandale[True])                # Key must be immutable so no lists
+print(vandale['456'])
+
+user = {
+    'basket': [1, 2, 3],
+    'greet': 'hello',
+    'age': 20
+}
+print(user.get('age'))              # get method returns None instead of 'Fatal Error' that halts excecution
+print(user.get('age', 55))          # creates a default value of 55 when current value is None
+
+user2 = dict(name='JohnJohn')       # other uncommon method of creating dictionaries
+print(user2)
+
+print('basket' in user)             # returns True or False if value excists
+print('size' in user)
+print('basket' in user.keys())      # just checks the keys, not the values
+print('basket' in user.values())    # just checks the values, not the keys
+print(('basket', [1, 2, 3]) in user.items())  # checks for tuples
+
+user3 = user.copy()                 # copies dictionary
+print(user.clear())                 # clears all dictionary values
+print(user3)
+print(user3.pop('age'))             # returns the value that was removed by pop method
+print(user3.update({'age': 55}))    # updates age key/value to 55
+user3.update({'code': '5'})         # even creates key/value pair if not yet excists
+print(user3)
+
+tuple                               # Like lists, but immutable
+my_tuple = (1, 2, 3, 4, 5, 5, 5)    # less flexable than lists, but more performant
+print(my_tuple[1])                  # can access individial values
+print(5 in my_tuple)
+
+new_tuple = my_tuple[1:4]           # can use slicing just like in lists
+print(new_tuple)
+x, y, z, *other, a = (1, 2, 3, 4, 5)
+print(a)
+print(other)
+print(my_tuple.count(5))            # counts the occurrances of set value
+print(my_tuple.index(5))            # returns index of given value
+print(len(my_tuple))                # lenght
+
+set                                 # unordered collection of unique values
+my_set = {1, 2, 3, 4, 5, 5, 5, 5}
+my_set.add(100)
+my_set.add(2)
+print(my_set)                       # only returns unique values so 2 and 5 are not added
+print(set(alpha))                   # removes all duplicate values by converting it to a set
+print(1 in my_set)
+print(len(my_set))                  # only counts unique values
+print(list(my_set))                 # still only returns unique values
+new_set = my_set.copy()             # copy
+my_set.clear()                      # clears all values
+print(new_set)
+
+old_set = {1, 2, 3, 4, 5}
+your_set = {4, 5, 6, 7, 8, 9, 10}
+print(old_set.difference(your_set)) # returns unique values of old_set
+old_set.discard(5)                  # discards specified value
+print(old_set)
+old_set.difference_update(your_set) # duplicate values are removed from old_set
+print(old_set)
+old_set.add(4)
+old_set.add(5)
+print(old_set.intersection(your_set)) # returns common values from both sets
+print (old_set & your_set)          # short hand for intersection
+print(old_set.isdisjoint(your_set)) # returns True for no common values, False for common duplicate values
+print(old_set.union(your_set))      # unites both sets, but removes any duplicates
+print(old_set | your_set)           # short hand for union method
+print(old_set.issubset(your_set))   # True if all values from old_set fit in your_set
+print(old_set.issuperset(your_set)) # True if all values from old_set encompass your_set
 
 # Classes -> custom types
 
