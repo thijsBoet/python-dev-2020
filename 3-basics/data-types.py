@@ -135,7 +135,7 @@ print(d)
 
 None                                # absence of value just like NULL
 
-dict                                # Dictionary unordered key => value pair(s) like associative array in PHP or objects JS
+dict                                # Dictionary unordered key => value pair(s) like associative array in PHP or objects in JS
 dictionary = {
     'a': [1,2,3],
     'b': 'Hello to all',
