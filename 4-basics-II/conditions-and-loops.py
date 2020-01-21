@@ -65,3 +65,98 @@ print('' is 1)              # will not convert different values to the same type
 print([] is [])             # still false because both lists live in differnt memory spaces
 print((1,2,3) is (1,2,3))   # same goes for tuples and dictionaries
 print([1,2,3] is [1,2,3])
+
+# Loops
+for item in 'Zero to Mastery':
+  print(item)
+
+for item in [1,2,3,4,5]:    # iterate over a collection of items
+  print(item)
+
+print(item)                 # prints last iteration 5
+
+for item in [1,2,3,4,5]:    # nested loop
+  for x in ['a', 'b', 'c']:
+    print(item, x)
+
+# iterable can be a list, dictionary, tuple, set, even strings
+user = {
+  'name': 'Golem',
+  'age': 5006,
+  'can_swim': False
+}
+
+for item in user.items():
+  key, value = item         # tuple unpakking
+  print(key, value)
+
+for key, value in user.items(): # short hand tuple unpakking
+  print(key, value)
+
+for item in user.values():
+  print(item)
+
+for item in user.keys():
+  print(item)
+
+# counter
+my_list = [1,2,3,4,5,6,7,8,9,10]
+counter = 0
+
+for num in my_list:
+  counter += num
+
+print(counter)
+
+print(range(100))           # range object creates list from 0 (if none given) to 2nd parameter -1 (99)
+print(range(0,10,2))        # start, stop, stepover
+
+for _ in range(0, 10):      # use underscore for unnamed variables
+  print(_)
+
+for _ in range(10,0,-1):    # -1 stepover value for backward range
+  print(_)
+
+print(list(range(10)))      # creates list range from 0 to 9
+
+for i, char in enumerate('Hello'):
+  print(i, char)            # enumerate gives both the value and the index of a iterable object
+
+for i, char in enumerate(list(range(100))):
+  if char == 50:
+    print(f'Index of 50 is: {i}')
+
+i = 1
+while i <= 10:
+  print(i)
+  i += 1
+else:
+  print('\'break\' out while loop.\nWill not run after break statement in while loop.')
+
+# while loop more flexable with initialisation of variable and control over itteration | use for unknow amount of itterations
+# for loop more predictable | use for known amount of itterations
+
+while True:                 # True is always True
+  # input('say Hello ')
+  break                     # break out of infinite loop
+
+# break     => exit loop
+# continue  => continue back to top of loop statement
+# pass      => does nothing => placeholder for future code
+
+picture = [
+  [0,0,0,1,0,0,0],
+  [0,0,1,1,1,0,0],
+  [0,1,1,1,1,1,0],
+  [1,1,1,1,1,1,1],
+  [0,0,0,1,0,0,0],
+  [0,0,0,1,0,0,0]
+]
+
+for row in picture:
+  for pixel in row:
+    if pixel == 0:
+      print(' ', end="")
+    if pixel == 1:
+      print('*', end="")
+  print('')
