@@ -7,7 +7,6 @@ elif is_licenced:
     print('You are licensed, but not yet old enough to drive!')
 else:
     print('You are not old enough to drive!')
-
 # Truthy and Falsy
 
 # python interprets values to Truthy or Falsy
@@ -184,9 +183,13 @@ for value in some_list:
 
 print(duplicates)
 
+def say_hello(name='Darth vader', emoji='🦹‍♂️'):  # paramenters
+    print(f'Hello {name}{emoji}')
 
-def say_hello(name):
-    print(f'Hello {name}')
+say_hello()                                   # falls back to default paramenters when no argument is given
 
+# positional arguments => position of name and emoji matter
+say_hello('Matthijs', '😊')                   # arguments
 
-say_hello('Matthijs')
+# keyword arguments
+say_hello(emoji='😊', name='Allen')           # bad code less readable / predictable
