@@ -183,13 +183,3 @@ for value in some_list:
 
 print(duplicates)
 
-def say_hello(name='Darth vader', emoji='🦹‍♂️'):  # paramenters
-    print(f'Hello {name}{emoji}')
-
-say_hello()                                   # falls back to default paramenters when no argument is given
-
-# positional arguments => position of name and emoji matter
-say_hello('Matthijs', '😊')                   # arguments
-
-# keyword arguments
-say_hello(emoji='😊', name='Allen')           # bad code less readable / predictable
