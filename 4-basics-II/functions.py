@@ -107,4 +107,20 @@ def count(total):
   total += 1
   return total
 
-print(count(count(count(total))))   # nest function otherwise will return 1
+print(count(count(count(total))))  # nest function otherwise will return 1
+
+# nonlocal => refers to parent local => usually bad practice
+def outer():
+  x = "local"
+  def inner():
+    nonlocal x          # use parent scope for x => "local"
+    x = "nonlocal"      # redefine parent x as "nonlocal"
+    print("inner:", x)
+
+  inner()
+  print("outer:", x)    # redefined outer scope with nonlocal keyword
+
+outer()
+
+# Global scope performance heavy
+# Function scope more performant due to better garbage collection
