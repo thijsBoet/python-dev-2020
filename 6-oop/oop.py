@@ -5,7 +5,7 @@
 # Encapsulation binding the code and data into a single unit.
 # Abstraction hiding unwanted details while showing most essential information.
 # Inheritance new objects inherit the properties of excisting objects
-# Polymorphism Poly = many | Morphism = forms => gives different outputs with same function see player_attack(char)
+# Polymorphism Poly = many | Morphism = forms => same classes with different implementations
 
 # Class aka blueprint
 class PlayerCharacter:              # classes are capitalized, camelcased and singular
@@ -54,11 +54,16 @@ print(type(player1))
 
 # inheritance of User class
 class User():
+  def __init__(self, email):
+    self.email = email
+
   def sign_in(self):
     print('logged in')
 
-class Wizard(User):       # inherit parent class (User)
-  def __init__(self, name, power):
+class Wizard(User):                       # inherit parent class (User)
+  def __init__(self, name, power, email):
+    User.__init__(self, email)            # inherit email from User class
+  # super().__init__(email)               # does the same thing | super refers to parent class
     self.name = name
     self.power = power
 
@@ -66,16 +71,29 @@ class Wizard(User):       # inherit parent class (User)
     print(f'attacking with power of {self.power}.')
     
 class Archer(User):
-  def __init__(self, name, num_arrows):
+  def __init__(self, name, num_arrows, email):
+    User.__init__(self, email)
     self.name = name
     self.num_arrows = num_arrows
 
   def attack(self):
     print(f'attacking with arrows: arrows left {self.num_arrows}.')
 
-wizard1 = Wizard('Gandalf', 50)
-archer1 = Archer('Robin', 100)
+  def run(self):
+    print('ran really fast')
+
+# create multiple inheritance
+def Hybrid(Wizard, Archer):
+  def __init__(self, name, power, arrows):
+    Archer.__init__(self, name, arrows)
+    Wizard.__init__(self, name, power)
+
+wizard1 = Wizard('Gandalf', 50, 'gandaldTheGrey@LOTR.co.nz')
+archer1 = Archer('Robin', 100, 'banditNrOne@nottingham.co.uk')
+hb1 = Hybrid('Seven of Nine', 50, 100)
+
 archer1.sign_in()
+
 wizard1.attack()
 archer1.attack()
 
@@ -96,6 +114,49 @@ print(isinstance(wizard1, User))
 
 object # base object class in Python aka everthing is an object in Python
 print(isinstance(wizard1, object))
+
+# introspection => getting type while code is running
+print(dir(wizard1))
+
+
+class Toy():
+  def __init__(self, color, age):
+    self.color = color
+    self.age = age
+    self.my_dict = {
+      'name': 'Yoyo',
+      'has_pets': False
+    }
+
+  def __str__(self):                      # changes str method only on Toy object
+    return f'{self.color}'
+
+  def __len__(self):                      # changes len method only on Toy object
+    return 5
+
+  def __del__(self):
+    print('deleted')
+
+  def __call__(self):
+    return('yesss??')
+
+  def __getitem__(self, i):
+    return self.my_dict[i]                # return item on (i)ndex
+
+action_figure = Toy('red', 0)
+
+print(action_figure.__str__())            # dunder method
+print(str(action_figure))                 # same method
+print(str('123456789'))                   # normal str method on non Toy objects
+
+print(action_figure.__str__)
+print(len('123456789'))
+
+print(action_figure())                     # () == call method
+
+print(action_figure['name'])
+
+del action_figure
 
 #Given the below class:
 class Cat:
@@ -160,3 +221,15 @@ my_pets = Pets(my_cats)
 
 #4 Output all of the cats walking using the my_pets instance
 my_pets.walk()
+
+# create a SuperList class with all the methods and properties a list has
+class SuperList(list):
+  def __len__(self):
+    return 1000
+
+superlist1 = SuperList()
+superlist1.append(5)
+print(superlist1[0])
+
+print(issubclass(SuperList, list))
+print(issubclass(list, object))
