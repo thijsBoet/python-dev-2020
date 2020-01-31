@@ -86,7 +86,7 @@ my_numbers = [5, 4, 3, 2, 1]
 my_numbers_sorted = my_numbers.sort()
 print(lis(my_numbers_sorted))
 
-print(list(zip(my_strings, my_numbers_sorted)))
+print(list(zip(my_numbers_sorted, my_strings)))
 
 
 #3 Filter the scores that pass over 50%
