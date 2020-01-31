@@ -18,7 +18,7 @@ class PlayerCharacter:              # classes are capitalized, camelcased and si
   def intro(self):                  # method
     print(f'Hi my name is {self._name} and im {self._age} years old.')
 
-  @classmethod                      
+  @classmethod
   def adding_things(cls, num1, num2): # cls stands for class
     return cls('Teddy', num1 + num2)# instanciation of class object within method
 
@@ -90,7 +90,7 @@ def Hybrid(Wizard, Archer):
 
 wizard1 = Wizard('Gandalf', 50, 'gandaldTheGrey@LOTR.co.nz')
 archer1 = Archer('Robin', 100, 'banditNrOne@nottingham.co.uk')
-hb1 = Hybrid('Seven of Nine', 50, 100)
+hb1 = Hybrid('Seven of Nine', 50)
 
 archer1.sign_in()
 
@@ -157,6 +157,35 @@ print(action_figure())                     # () == call method
 print(action_figure['name'])
 
 del action_figure
+
+# MRO - Method Resolution Order
+# Rules for order of excecution
+class A:
+  num = 10
+
+class B(A):
+  pass
+
+class C(A):
+  num = 1
+
+class D(B, C):
+  pass
+
+#    A
+#   / \
+#  /   \
+# B     C
+#  \   /
+#   \ /
+#    D
+
+print(D.num)        # Checks D => B => C.num == 1
+print(D.__str__)    # Checks D => B => C => A => base object (object)
+
+# Print order of execution
+print(D.mro())
+
 
 #Given the below class:
 class Cat:
