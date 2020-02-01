@@ -118,6 +118,8 @@ print(my_list)
 
 # my_list = [param for param in iterable]
 new_list = [char for char in 'Good Bye']
+print(new_list)
+
 new_list2 = [num for num in range(0,100)]
 
 # iterate with an expression over a list
@@ -127,5 +129,25 @@ new_list3 = [num * 2 for num in range(0,100)]
 new_list4 = [num ** 2 for num in range(0,100) if num % 2 == 0]
 
 # set comprehention, just use curly braces instead of brackets
-set1 = {char for char in 'All set'}
-set2 = {num for num in range(0,100)}
+my_set1 = {char for char in 'All set'}
+print(my_set1)
+
+my_set2 = {num for num in range(0,100)}
+
+# dictionary comprehension, just use curly braces instead of brackets and key/value pairs as arguments
+simple_dict = {
+  'a' : 1,
+  'b' : 2,
+  'c' : 3,
+  'd' : 4
+}
+
+my_dict = {key:value**2 for key,value in simple_dict.items() if value % 2 == 0}
+print(my_dict)
+
+my_dict2 = {num:num*2 for num in [1,2,3]}
+
+# get duplicates
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+duplicates = list(set([char for char in some_list if some_list.count(char) > 1]))
+print(duplicates)
