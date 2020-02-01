@@ -78,7 +78,11 @@ print(list(map(lambda item: item * 2, my_list)))
 print(list(filter(lambda item: item % 2 != 0, my_list)))
 print(reduce(lambda acc, item: acc + item , my_list))
 print(list(map(lambda item: item ** 2, my_list)))
+
+# sort tuples ascending with second value
 a = [(0,2), (4,3), (9,9), (10,-1)]
+a.sort(key=lambda x: x[1])
+print(a)
 
 from functools import reduce
 
@@ -87,22 +91,41 @@ my_pets = ['sisi', 'bibi', 'titi', 'carla']
 my_pets = map(lambda x: x.capitalize(), my_pets)
 print(list(my_pets))
 
-
 #2 Zip the 2 lists into a list of tuples, but sort the numbers from lowest to highest.
 my_strings = ['a', 'b', 'c', 'd', 'e']
 my_numbers = [5, 4, 3, 2, 1]
 
-
 print(list(zip(my_strings, sorted(my_numbers))))
-
 
 #3 Filter the scores that pass over 50%
 scores = [73, 20, 65, 19, 76, 100, 88]
 
-def over_50(score):
-  return score > 50
-
-print(list(filter(over_50, scores)))
+print(list(filter(lambda score: score > 50, scores)))
 
 #4 Combine all of the numbers that are in a list on this file using reduce (my_numbers and scores). What is the total?
 print(reduce(accumulator, (my_numbers + scores)))
+
+# list, set, dictionary comprehentions
+# slow old way
+my_list = []
+
+for char in 'Hello':
+  my_list.append(char)
+
+print(my_list)
+
+# fast new way using list comprehensions
+
+# my_list = [param for param in iterable]
+new_list = [char for char in 'Good Bye']
+new_list2 = [num for num in range(0,100)]
+
+# iterate with an expression over a list
+new_list3 = [num * 2 for num in range(0,100)]
+
+# filter for only even numbers
+new_list4 = [num ** 2 for num in range(0,100) if num % 2 == 0]
+
+# set comprehention, just use curly braces instead of brackets
+set1 = {char for char in 'All set'}
+set2 = {num for num in range(0,100)}
