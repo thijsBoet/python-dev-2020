@@ -1,4 +1,4 @@
-li = [0,1,2,3]
+li = [0,1,2]
 di = {'a':1}
 
 #                               Common Errors
@@ -48,9 +48,9 @@ def sum(num1, num2):
     try:
         return num1 + num2
     # Good practice to define the type of error for debugging purposes
-    except TypeError as err:
+    except (TypeError, ZeroDivisionError) as err:
     # use 'as err' to catch error variable message
-        print('Please enter numbers. ' + err)
+        print(err) 
 
 
 sum('1', 2)
