@@ -12,7 +12,7 @@ di = {'a':1}
 #    pass
 
 # NameError: name 'name' is not defined
-# 1 + name        
+# 1 + name
 
 # IndexError: list index out of range
 # li[4]
@@ -32,16 +32,23 @@ while True:
     try:
         # set input as int type so it must be a number | no empty string or letter
         age = int(input('What is your age? '))
-        print(f'Your age is {age}.')
+        10/age
     # You can define the type of error the exception handles
     except ValueError:
         print('Please enter a number.')
+        # continue continues back to top of loop
+        continue
     # You can define the type of error the exception handles
     except ZeroDivisionError:
         print('Please enter age higher than 0.')
+        break
     else:
         print('Thank you!')
+        # break will stop excution
         break
+    # finally runs after everything has executed even after break statement
+    finally:
+        print('ok, i am finally done.')
 
 def sum(num1, num2):
     # Can build try/except block direct into function
@@ -51,6 +58,5 @@ def sum(num1, num2):
     except (TypeError, ZeroDivisionError) as err:
     # use 'as err' to catch error variable message
         print(err) 
-
 
 sum('1', 2)

@@ -73,7 +73,7 @@ print(reduce(accumulator, my_list, 0))
 print(reduce(accumulator, my_list, 10))
 
 # lambda expressions => one time anonymous function
-#              lambda param: function(param)
+# lambda param: function(param|list|object)
 print(list(map(lambda item: item * 2, my_list)))
 print(list(filter(lambda item: item % 2 != 0, my_list)))
 print(reduce(lambda acc, item: acc + item , my_list))

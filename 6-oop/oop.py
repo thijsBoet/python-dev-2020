@@ -69,7 +69,7 @@ class Wizard(User):                       # inherit parent class (User)
 
   def attack(self):
     print(f'attacking with power of {self.power}.')
-    
+
 class Archer(User):
   def __init__(self, name, num_arrows, email):
     User.__init__(self, email)
