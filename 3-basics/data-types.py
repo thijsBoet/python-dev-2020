@@ -121,7 +121,7 @@ print(sorted(alpha))                # creates a new copy and sorts it
 print(alpha)
 print(alpha[::-1])                  # reverses with list slicing
 alpha.reverse()                     # reverses but does not sort
-print(list(range(1,100)))           # creates range list from 1 to 100
+print(list(range(1,100)))           # creates range list from 1 to 99 (100 - 1)
 sentence = '<>'
 new_sentence = sentence.join(['hi', 'my', 'name', 'is', 'JOJO'])
 print(new_sentence)
