@@ -32,7 +32,8 @@ print(int('0b101', 2))  # convert back to decimal value
 
 str
 print(type("Strings are texts"))
-long_string = '''WOW
+long_string = '''
+WOW
 O O
 ---'''
 print(long_string)
