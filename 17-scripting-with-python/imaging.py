@@ -38,9 +38,10 @@ import sys, os
 
 def convert_to_png(folder, new):
     # check if folder exists
-
+    os.path.isdir(folder)
     # check if new folder exists, otherwise create it
-
+    if os.path.isdir(new) == False:
+        os.mkdir(new)
     # loop through folder
 
     # convert images to png
