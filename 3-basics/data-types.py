@@ -181,7 +181,7 @@ print(user.get('age', 55))          # creates a default value of 55 when current
 user2 = dict(name='JohnJohn')       # other uncommon method of creating dictionaries
 print(user2)
 
-print('basket' in user)             # returns True or False if value excists
+print('basket' in user)             # returns True or False if value exists
 print('size' in user)
 print('basket' in user.keys())      # just checks the keys, not the values
 print('basket' in user.values())    # just checks the values, not the keys
