@@ -39,3 +39,13 @@ print(matchObject.group())
 
 pattern = re.compile(r'(God).([a-zA-Z]*)')
 print(pattern.findall(text))
+
+validEmailPattern = re.compile(r"(^[a-zA-Z0-9_.+-]+)@([a-zA-Z0-9-]+)(\.[a-zA-Z0-9-.]+$)")
+matchObject = validEmailPattern.match('m.boer@chello.nl')
+print(matchObject.group(1), matchObject.group(2), matchObject.group(3))
+
+# password validation
+# 8 chars or longer
+# must contain letter, number and $%#@
+validPasswordPattern = re.compile(r"[a-zA-Z0-9$%#@]{10,}\d")
+print(validPasswordPattern.fullmatch('lasgadfsgasdg%$9'))
