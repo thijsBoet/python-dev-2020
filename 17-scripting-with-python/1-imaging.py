@@ -35,15 +35,14 @@ astro.save('thumbnail.jpg')
 astro.show()
 
 import sys, os
+from PIL import Image
 
-def convert_to_png(folder, new):
-    # check if folder exists
-    os.path.isdir(folder)
-    # check if new folder exists, otherwise create it
-    if os.path.isdir(new) == False:
-        os.mkdir(new)
-    # loop through folder
+def convert_to_png(image_folder, output_folder):
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    for filename in os.listdir(image_folder):
+        img = Image.open(f'{image_folder}{filename}')
+        clean_name = os.path.splitext(filename)[0]
+        img.save(f'{output_folder}{clean_name}.png', 'png')
 
-    # convert images to png
-
-    # save to new folder
+convert_to_png('img', 'png')
