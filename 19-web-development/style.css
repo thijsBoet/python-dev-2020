@@ -1,0 +1,9 @@
+html,
+body {
+  background-color: beige;
+}
+
+.header {
+  color: #6e2c00;
+  font: italic bold 30px Georgia, serif;
+}
