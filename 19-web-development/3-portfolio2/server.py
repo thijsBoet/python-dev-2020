@@ -6,26 +6,17 @@ app = Flask(__name__)
 def home():
     return render_template('./index.html')
 
-
 @app.route('/works')
 def works():
     return render_template('./works.html')
-
 
 @app.route('/about')
 def about():
     return render_template('./about.html')
 
-
 @app.route('/contact')
 def contact():
     return render_template('./contact.html')
-
-
-@app.route('/components')
-def components():
-    return render_template('./components.html')
-
 
 # export FLASK_APP=server.py                            set python file
 # export FLASK_ENV=development                          reset to developent mode so server restarts on change
