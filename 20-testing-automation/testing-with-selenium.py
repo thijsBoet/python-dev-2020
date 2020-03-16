@@ -38,3 +38,4 @@ sum1 = chrome_browser.find_element_by_css_selector('#sum1')
 # chrome_browser.quit()
 
 # use wait and sleep methods to better emulate humans
+chrome_browser.implicitly_wait(10)
