@@ -49,13 +49,6 @@ p = figure(title="Soccer 2019", x_axis_label='Wage', y_axis_label='Value', plot_
 p.circle('Wage', 'Value', size=10, source=df1)
 show(p)
 
-
-
-
-
-
-
-
 # 3 - Split data in Training Set/Test Set
 # 4 - Create/Import a Model
 # 5 - Check the output
